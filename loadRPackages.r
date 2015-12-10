@@ -4,7 +4,7 @@ packNames <- c( "animation", "coda", "bitops", "data.table","deSolve",
                 "OpenCL", "PBSmapping", "PBSmodelling", "RandomFields",  "randomForest",
                 "RCurl", "rehsape2",
                 "ref", "rlecuyer", "RMark", "RODBC", "scatterplot3d", "snow",
-                "snowfall", "sp", "splancs", "stringr", "whisker", "XML"
+                "snowfall", "sp", "splancs", "stringr", "whisker", "XML", "tools"
               )
 
 for( i in 1:length(packNames) )
