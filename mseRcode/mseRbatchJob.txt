@@ -1,0 +1,39 @@
+# File Begins <not run>.
+parameter value
+#
+# Scenarios for reference set.
+#
+#  Scenario 1: S-R steepness is 0.7.
+#
+scenario$scenario1$other$scenarioLabel "Scenario_1"
+scenario$scenario1$pars$rSteepness 0.7
+scenario$scenario1$pars$nReps 10
+scenario$scenario1$scCol "black"
+#
+# Scenario 2: S-R steepness is 0.9.
+#
+scenario$scenario2$other$scenarioLabel "Scenario_2"
+scenario$scenario2$pars$rSteepness 0.9
+scenario$scenario2$pars$nReps 10
+scenario$scenario2$scCol "red"
+#
+# Management procedures to apply to each scenario.
+#
+# Management procedure 1 :
+#
+mp$mp1$other$mpLabel "Management_Procedure_1"
+mp$mp1$mp$assess$assessMethod "kalman"
+mp$mp1$mp$assess$kfGain 0.5
+mp$mp1$mpCol "black"
+mp$mp1$mpLty 1
+mp$mp1$mpSym 0
+#
+# Management procedure 2:
+#
+mp$mp2$other$mpLabel "Management_Procedure_2"
+mp$mp2$mp$assess$assessMethod "kalman"
+mp$mp2$mp$assess$kfGain 0.7
+mp$mp2$mpCol "red"
+mp$mp2$mpLty 1
+mp$mp2$mpSym 1
+# File Ends <not run>.

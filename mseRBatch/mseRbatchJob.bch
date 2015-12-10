@@ -1,0 +1,40 @@
+# File Begins <not run>.
+parameter value
+#
+# Scenarios for reference set.
+#
+#  Scenario 1: rwConM
+#
+scenario$scenario1$gui$scenarioLabel "rwConM"
+scenario$scenario1$opMod$endM 0.57
+scenario$scenario1$opMod$sigmaM 0.2
+scenario$scenario1$gui$nReps 3
+#
+# Scenario 2: rwIncM
+#
+scenario$scenario2$gui$scenarioLabel "rwIncM"
+scenario$scenario2$opMod$endM 0.8
+scenario$scenario2$opMod$sigmaM 0.2
+scenario$scenario2$gui$nReps 3
+#
+# Management procedures to apply to each scenario.
+#
+# Management procedure 1 : HMP
+#
+mp$mp1$gui$mpLabel "HMP"
+mp$mp1$mp$hcr$lowerBoundMult 0.25
+mp$mp1$mp$hcr$upperBoundMult 0.31
+mp$mp1$mp$hcr$remRefBase "rrBaseFinput"
+mp$mp1$mp$hcr$statusBase "statusBaseB0"
+mp$mp1$mp$hcr$inputF 0.223
+mp$mp1$mp$hcr$Fmult 1
+#
+# Management procedure 2: LMP
+#
+mp$mp2$gui$mpLabel "LMP"
+mp$mp2$mp$hcr$lowerBoundMult 0.39
+mp$mp2$mp$hcr$upperBoundMult 0.40
+mp$mp2$mp$hcr$remRefBase "rrBaseFmsy"
+mp$mp2$mp$hcr$statusBase "statusBaseB0"
+mp$mp2$mp$hcr$Fmult 0.5
+# File Ends <not run>.

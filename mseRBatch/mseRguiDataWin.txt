@@ -1,0 +1,140 @@
+window name=mseRguiData title="mseR Data GUI"
+
+# (1) Main pull-down menu items.
+
+menu nitem=1 label="File"
+  menuitem label="Exit"                      function=.closeActWin
+menu nitems=2 label="View"
+  menu nitems=3 label=Docs
+    menuitem label="mseR-FinFish Components" function=.viewHelp action=mseR-Finfish.emf
+    menuitem label="Variable Description"    function=.viewHelp action=testDoc.txt
+    menuitem label="Plot Descriptions"       function=.viewHelp action=testDoc.txt
+  menu nitems=2 label="R Code"
+    menuitem label="GUI Functions"        	 function=.viewFile action=mseRguiSimFuns.r
+    menuitem label="Window Control Template" function=.viewFile action=mseRguiDataWin.txt
+menu nitems=4 label=Help
+    menuitem label="FAQ"                     function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Help"       function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Manual"     function=.viewHelp action=testDoc.txt
+    menuitem label="About mseR"              function=.viewHelp action=mseR-FFabout.txt
+
+#------------------------------------------------------------------------------#
+#--                               Method GUI                                 --#
+#------------------------------------------------------------------------------#
+
+grid 3 1
+
+  # MP Data.
+  grid 2 1
+  
+    grid 3 1 relief="sunken"
+      label text="Fishery Ages" font="bold 12" sticky=W
+      
+      grid 1 3    
+          label text="Fishery age proportion observation std. error" font=12 sticky=W
+          null
+          entry name=tauAge value="0.2" width=8 mode="numeric" action="tauAge" function=.subSim entryfont="12" sticky=E
+      
+      grid 3 5 byrow=TRUE
+        label " "
+        label text="Start time" font="12"
+        label text="Freq"       font="12"
+        label text="Custom"     font="12"
+        null
+
+        label "Period 1" font="12"      
+        entry name=t1Ages   label="" function=.subSim mode=numeric value=20  width=6 entryfont="12" font="12"
+        entry name=k1Ages   label="" function=.subSim mode=numeric value=1   width=4 entryfont="12" font="12"
+        entry name=idxAges1 label="" function=.subSim mode=character value="seq(10,52,1)"  width=40 entryfont="12" font="12" padx=2
+        check name=chkAges1 action=chkAges1 function=.subSim checked=F text="" font=12          
+        
+        label "Period 2" font="12"                      
+        entry name=t2Ages   label="" function=.subSim mode=numeric value=52  width=6 entryfont="12" font="12"
+        entry name=k2Ages   label="" function=.subSim mode=numeric value=1   width=4 entryfont="12" font="12"          
+        entry name=idxAges2 label="" function=.subSim mode=character value="seq(53,100,1)" width=40 entryfont="12" font="12" padx=2
+        check name=chkAges2 action=chkAges2 function=.subSim checked=F text="" font=12               
+
+#      grid 2 2 relief="sunken"
+#        label text="Period 1" font="12"
+#        label text="Period 2" font="12"
+#        entry name=idxAges2 label="" function=.subSim mode=character value="seq(53,100,1)" width=40 entryfont="12" font="12"
+  
+            grid 3 1 relief="sunken"
+              label text="Survey Ages" font="bold 12" sticky=W
+              
+              grid 1 3    
+                  label text="Survey age proportion observation std. error" font=12 sticky=W
+                  null
+                  entry name=tauAgeS value="0.2" width=8 mode="numeric" action="tauAge" function=.subSim entryfont="12" sticky=E
+              
+              grid 3 5 byrow=TRUE
+                label " "
+                label text="Start time" font="12"
+                label text="Freq"       font="12"
+                label text="Custom"     font="12"
+                null
+        
+                label "Period 1" font="12"      
+                entry name=t1AgesS   label="" function=.subSim mode=numeric value=20  width=6 entryfont="12" font="12"
+                entry name=k1AgesS   label="" function=.subSim mode=numeric value=1   width=4 entryfont="12" font="12"
+                entry name=idxAges1S label="" function=.subSim mode=character value="seq(10,52,1)"  width=40 entryfont="12" font="12" padx=2
+                check name=chkAges1S action=chkAges1 function=.subSim checked=F text="" font=12          
+                
+                label "Period 2" font="12"                      
+                entry name=t2AgesS   label="" function=.subSim mode=numeric value=52  width=6 entryfont="12" font="12"
+                entry name=k2AgesS   label="" function=.subSim mode=numeric value=1   width=4 entryfont="12" font="12"          
+                entry name=idxAges2S label="" function=.subSim mode=character value="seq(53,100,1)" width=40 entryfont="12" font="12" padx=2
+                check name=chkAges2S action=chkAges2 function=.subSim checked=F text="" font=12               
+        
+ ##############################################################################################################
+
+    
+    grid 3 1 relief="sunken" pady=5
+      label text="Survey" font="bold 12" sticky=W    
+
+      grid 1 2
+        grid 3 3
+          null
+          label text="Mean" font=12
+          label text="SD" font=12
+               
+          label text="CV (Period 1)" font=12 sticky=W
+          entry name=tauSurvey1Mean value="0.30" width=6 mode="numeric" action="tauSurvey1Mean" function=.subSim entryfont=12 sticky=W
+          entry name=tauSurvey1SD value="0.1" width=6 mode="numeric" action="tauSurvey1SD" function=.subSim entryfont=12 sticky=W
+
+          label text="CV (Period 2)" font=12 sticky=W
+          entry name=tauSurvey2Mean value="0.20" width=6 mode="numeric" action="tauSurvey2Mean" function=.subSim entryfont=12 sticky=W
+          entry name=tauSurvey2SD value="0.05" width=6 mode="numeric" action="tauSurvey2SD" function=.subSim entryfont=12 sticky=W
+            
+        check name=tauRandom   function=.subSim action="tauRandom" checked=F text="CVs random" font="12" sticky=W
+         
+      grid 3 5 byrow=TRUE
+        label " "
+        label text="Start time" font="12"
+        label text="Freq"       font="12"
+        label text="Custom"     font="12"
+        null
+
+        label "Period 1" font="12"      
+        entry name=t1Survey   label="" function=.subSim mode=numeric value=20  width=6 entryfont="12" font="12"
+        entry name=k1Survey   label="" function=.subSim mode=numeric value=1   width=4 entryfont="12" font="12"
+        entry name=idxSurvey1 label="" function=.subSim mode=character value="seq(20,49,1)"  width=40 entryfont="12" font="12" padx=2
+        check name=chkSurvey1 action=chkSurvey1 function=.subSim checked=F text="" font=12          
+        
+        label "Period 2" font="12"                      
+        entry name=t2Survey   label="" function=.subSim mode=numeric value=50  width=6 entryfont="12" font="12"
+        entry name=k2Survey   label="" function=.subSim mode=numeric value=1   width=4 entryfont="12" font="12"
+        entry name=idxSurvey2 label="" function=.subSim mode=character value="seq(50,100,1)" width=40 entryfont="12" font="12" padx=2
+        check name=chkSurvey2 action=chkSurvey2 function=.subSim checked=F text="" font=12          
+      
+#      grid 2 2 relief="sunken"
+#        label text="Period 1" font="12"
+#        entry name=idxSurvey1 label="" function=.subSim mode=character value="seq(20,49,1)"  width=40 entryfont="12" font="12"
+#        label text="Period 2" font="12"
+#        entry name=idxSurvey2 label="" function=.subSim mode=character value="seq(50,100,1)" width=40 entryfont="12" font="12"
+
+#  grid 2 1 relief="sunken"    
+#    label text="Fishery"    font="bold 12"   sticky=W
+#    label text="TBA"        font="italic 12" pady=12
+    
+  button name=dataOK text="Save" function=.subSim action="dataOK" font="bold 12" padx=2 width=6

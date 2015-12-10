@@ -1,0 +1,118 @@
+window name=mseRoptGui title="mseR-Options: Management Strategy Evaluation in R - FinFish, Ver. 1.0"
+
+# (1) Main pull-down menu items.
+
+menu nitem=1 label="File" font=12
+  menuitem label="Exit"                      function=.closeActWin
+menu nitems=3 label="View" font=12
+  menu nitems=3 label=Docs
+    menuitem label="mseR-FinFish Components" function=.viewHelp action=mseR-Finfish.emf
+    menuitem label="Variable Description"    function=.viewHelp action=testDoc.txt
+    menuitem label="Plot Descriptions"       function=.viewHelp action=testDoc.txt
+  menu nitems=2 label="R Code"
+    menuitem label="GUI Functions"        	 function=.viewFile action=mseRguiOptFuns.r
+    menuitem label="Window Control Template" function=.viewFile action=mseRguiOptWin.txt
+menu nitems=4 label=Help
+    menuitem label="FAQ"                     function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Help"       function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Manual"     function=.viewHelp action=testDoc.txt
+    menuitem label="About mseR"              function=.viewHelp action=mseR-FFabout.txt
+
+#------------------------------------------------------------------------------#
+#--                              Options GUI                                 --#
+#------------------------------------------------------------------------------#
+
+grid 3 1
+
+  # Grid Row 1: The parameter object widget.
+  grid 4 1 relief="raised"
+    grid 1 3
+      label text="Project" font="bold 12"
+      entry name="prjOptFile" function=.subOpt action="prjOptFile" mode=character value="mseRprjOptData.csv" edit=FALSE entryfont=12 width=45
+      button text="Select" name="selPrj" function=.subOpt action="selPrj" font="bold 12" padx=2 width=5 bg="gray85"
+      
+    object name=prjOpts rowshow=5 function=.subOpt action="prjOpts" entrybg="gray" width="14 8 8 8 8 2 2 4 4 1" entryfont="10" font="10" padx=5
+    
+    grid 3 1 relief="sunken" pady=2
+    
+      grid 1 2
+        label text="Description" font="bold 12"
+        entry name="varDesc" function=.subOpt action="varDesc" mode=character value="Variable" entryfont=12 width=40 padx=2
+
+      grid 1 4      
+        label text="Label" font="bold 12"
+        entry name="varLab" function=.subOpt action="varLab" mode=character value="Label" entryfont=12 width=25 padx=2
+      
+        label text="Units" font="bold 12"
+        entry name="varUnits" function=.subOpt action="varUnits" mode=character value="Units" entryfont=12 width=15 padx=2
+      
+      grid 1 6
+        label text="Min" font="bold 12"
+        entry name="minVal" function=.subOpt action="minVal" mode=numeric value=0   entryfont=12 width=8 padx=2      
+      
+        label text="Max" font="bold 12"
+        entry name="maxVal" function=.subOpt action="maxVal" mode=numeric value=100 entryfont=12 width=8 padx=2
+        
+        label text="Type" font="bold 12" sticky=E
+        entry name="varType" function=.subOpt action="varType" mode=character value="" entryfont=12 width=15 padx=2 sticky=E
+
+    grid 1 2 relief="sunken" pady=2
+      grid 4 1
+        label text="Colours" font="bold 12"
+        button name=optColorList action="colorList" text="List" function=.subOpt font="bold 12" width=4 pady=2
+        label text="Key" font="bold 12"
+        spinbox name="optColKey" from=1 to=9 by=1 function=.subOpt action="optColKey"  value=1 entryfont=12 width=4
+
+      grid 1 3 pady=5
+
+        grid 2 1 relief="sunken" padx=2
+          label text="Colours" font="bold 12"
+          grid 3 2
+            button text="bg"  name=optBG   function=.subOpt action="optBG"  font="bold 12" padx=2 width=3 bg="gray85"
+            entry name="valBG"   function=.subOpt action="valBG"  mode=character value="white" entryfont=14 width=8 padx=2
+            button text="fg"  name=optFG   function=.subOpt action="optFG"  font="bold 12" padx=2 width=3 bg="gray85"
+            entry name="valFG"   function=.subOpt action="valFG"  mode=character value="black" entryfont=14 width=8 padx=2        
+            button text="col" name=optCOL  function=.subOpt action="optCOL" font="bold 12" padx=2 width=3 bg="gray85"
+           entry name="valCOL"  function=.subOpt action="valCOL" mode=character value="black" entryfont=14 width=8 padx=2        
+        
+        grid 2 1 relief="sunken" padx=5
+          label text="Lines"   font="bold 12"
+          grid 3 2
+            button text="lty" name=optLTY  function=.subOpt action="optLTY" font="bold 12" padx=2 width=3 bg="gray85"
+            spinbox name="valLTY" from=1 to=6 by=1 function=.subOpt action="valLTY"  value=1 entryfont=14 width=4 padx=2        
+            button text="lwd" name=optLWD  function=.subOpt action="optLWD" font="bold 12" padx=2 width=3 bg="gray85"
+            spinbox name="valLWD" from=1 to=20 by=1 function=.subOpt action="valLWD"  value=1 entryfont=14 width=3 padx=2
+            null pady=4
+            null pady=4
+    
+        grid 2 1 relief="sunken" padx=5
+          label text="Symbols" font="bold 12"
+          grid 3 2
+            button text="pch"     name=optPCH  function=.subOpt action="optPCH" font="bold 12" padx=2 width=3 bg="gray85"
+            spinbox name="valPCH" from=1 to=25 by=1 function=.subOpt action="valPCH"  value=1 entryfont=14 width=4 padx=2                                        
+            button text="cex"     name=optCEX  function=.subOpt action="optCEX" font="bold 12" padx=2 width=3 bg="gray85"
+            spinbox name="valCEX" from=0.1 to=3 by=0.1 function=.subOpt action="valCEX"  value=1 entryfont=14 width=4 padx=2
+            null pady=4
+            null pady=4
+  
+  # Grid Row 2: Graphics Options.      
+  grid 2 1 relief="raised" pady=5
+    grid 1 3
+      label text="General" font="bold 12"
+      entry name="genOptFile" function=.subOpt action="genOptFile" mode=character value="mseRgenOptData.csv" edit=FALSE entryfont=12 width=45
+      button text="Select" name="selGen" function=.subOpt action="selGen" font="bold 12" padx=2 width=5 bg="gray85"
+
+    object name=genOpts rowshow=5 function=.subOpt action="genOpts" entrybg="white" width="20 10 22" entryfont="12" font="12"    
+  
+  # Grid Row 3: Footer Buttons.  
+  grid 1 9 relief="raised"
+    button text="Reset" name=optReset function=.subOpt action="optReset" font="bold 12" padx=2 width=5 bg="yellow"
+    button text="Save"  name=optSave  function=.subOpt action="optSave"  font="bold 12" padx=2 width=5 bg="lightblue"
+    null
+
+    button text="Batch" name=optBatch function=.subOpt action="optBatch" font="bold 12" padx=2 width=5 bg="gray85"
+    button text="Sim"   name=optSim   function=.subOpt action="optSim"   font="bold 12" padx=2 width=5 bg="gray85"   
+    button text="View"  name=optView  function=.subOpt action="optView"  font="bold 12" padx=2 width=5 bg="gray85"
+    button text="Perf"  name=optPerf  function=.subOpt action="optPerf"  font="bold 12" padx=2 width=5 bg="gray85"   
+    button text="Track" name=optTrack function=.subOpt action="optTrack" font="bold 12" padx=2 width=5 bg="gray85"       
+    button text="Exit"  name=optExit  function=.subOpt action="optExit"  font="bold 12" padx=5 width=5 bg="gray95"

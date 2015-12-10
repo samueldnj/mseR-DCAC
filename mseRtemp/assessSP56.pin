@@ -1,0 +1,18 @@
+##  assessSP : Surplus production model parameters.
+## Written: Tue Nov 24 11:59:34 2015 
+# lnMsy
+ 3.225167 
+# lnFmsy
+ -0.3566749 
+# pmMsy
+ 6 
+# psdMsy
+ 0.5 
+# pmFmsy
+ 0.7 
+# psdFmsy
+ 0.07 
+# rho
+ 0.75 
+# lnOmega
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 

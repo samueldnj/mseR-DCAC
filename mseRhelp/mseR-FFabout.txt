@@ -1,0 +1,8 @@
+mseR-Finfish: Management Strategy Evaluation in R for Finfish, Version 1.0
+
+Copyright (c) 2012, 2013 A.R. Kronlund, S.P. Cox, K.R. Holt
+
+This software comes with ABSOLUTELY NO WARRANTY, expressed or implied.
+You have been provided with a copy of mseR-Finfish for educational purposes.
+You are requested not to redistribute this software without seeking
+permission from the authors.                                         
