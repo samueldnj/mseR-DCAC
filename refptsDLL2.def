@@ -1,4 +1,0 @@
-LIBRARY refptsDLL2
-
-EXPORTS
-	refptsDLL2

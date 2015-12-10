@@ -1,8 +1,0 @@
-# mseR batch design file,  Thu Sep 24 21:42:21 2015 
-"parFile","blobName","scenarioLabel","mpLabel","dataName","methodName","ruleName","scCol","scLty","scLwd","scSym","mpCol","mpLty","mpLwd","mpSym","join"
-"simCtlBat1.txt","simsimCtlBat1","\"Curr\"","\"Curr\"","data","method","rule","black",1,1,1,"black",1,1,1,0
-"simCtlBat2.txt","simsimCtlBat2","\"Curr\"","\"Hist\"","data","method","rule","black",1,1,1,"black",1,1,1,0
-"simCtlBat3.txt","simsimCtlBat3","\"Curr\"","\"ccRule\"","data","method","rule","black",1,1,1,"black",1,1,1,0
-"simCtlBat4.txt","simsimCtlBat4","\"Hist\"","\"Curr\"","data","method","rule","black",1,1,1,"black",1,1,1,0
-"simCtlBat5.txt","simsimCtlBat5","\"Hist\"","\"Hist\"","data","method","rule","black",1,1,1,"black",1,1,1,0
-"simCtlBat6.txt","simsimCtlBat6","\"Hist\"","\"ccRule\"","data","method","rule","black",1,1,1,"black",1,1,1,0
