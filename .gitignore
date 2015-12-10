@@ -1,0 +1,6 @@
+# Ignore mseRbackup
+./mseRbackup/*
+./mseRbackup/*.*
+
+# Ignore batch made control files
+./mseRproject/batch/*.txt
