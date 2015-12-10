@@ -1,0 +1,97 @@
+# File Ends <not run>.
+parameter value
+#
+# Scenarios for reference set
+#
+#  Scenario 1: Current assessment output
+#
+scenario$scenario1$gui$scenarioLabel "Curr"
+scenario$scenario1$opMod$B0 61.39
+scenario$scenario1$opMod$M 0.49
+scenario$scenario1$opMod$aMat50 3.20
+scenario$scenario1$opMod$aMat95 4.50
+scenario$scenario1$opMod$aSel50 3.20
+scenario$scenario1$opMod$aSel95 4.50
+scenario$scenario1$opMod$aSelS50 3.20
+scenario$scenario1$opMod$aSelS95 4.50
+scenario$scenario1$opMod$endM 0.49
+scenario$scenario1$opMod$q1q2Ratio 0.48
+scenario$scenario1$opMod$qSurvey 0.61
+scenario$scenario1$opMod$rSteepness 0.80
+scenario$scenario1$opMod$sigmaR 0.70
+scenario$scenario1$opMod$historyType "simHistCC_Curr.csv"
+
+# NOTE: add in all the differences from XL sheet
+
+##
+#  Scenario 2: Historical assessment output
+#
+scenario$scenario2$gui$scenarioLabel "Hist"
+scenario$scenario2$opMod$B0 54.56
+scenario$scenario2$opMod$M 0.42
+scenario$scenario2$opMod$aMat50 3.30
+scenario$scenario2$opMod$aMat95 5.10
+scenario$scenario2$opMod$aSel50 3.30
+scenario$scenario2$opMod$aSel95 5.10
+scenario$scenario2$opMod$aSelS50 3.30
+scenario$scenario2$opMod$aSelS95 5.10
+scenario$scenario2$opMod$endM 0.42
+scenario$scenario2$opMod$q1q2Ratio 0.34
+scenario$scenario2$opMod$qSurvey 1.00
+scenario$scenario2$opMod$rSteepness 0.81
+scenario$scenario2$opMod$sigmaR 0.70
+scenario$scenario2$opMod$historyType "simHistCC_Hist.csv"
+
+##
+# Management procedures to apply to each scenario.
+#
+# NOTE: need to vectorize caaSurveyRel in mseR, writeADMB, and .tpl
+#
+# Management procedure 1 : Curr
+#
+mp$mp1$gui$mpLabel "Curr"
+mp$mp1$mp$assess$methodId 5
+mp$mp1$mp$assess$caaM 0.47
+mp$mp1$mp$assess$caaPmM 0.50
+mp$mp1$mp$assess$caaPmSteep 0.80
+mp$mp1$mp$assess$caaPmQ1 0.56
+mp$mp1$mp$assess$caaPmQ2 0.56
+mp$mp1$mp$assess$caaPsdQ1 0.27
+mp$mp1$mp$assess$caaPsdQ2 0.27
+mp$mp1$mp$assess$caaSurveyRel "c(1,1)"
+mp$mp1$mp$hcr$hcrType "variableF"
+mp$mp1$mp$hcr$updateRefPts TRUE
+mp$mp1$mp$hcr$statusSource "statusSrceEst"
+mp$mp1$mp$hcr$remRefBase "rrBaseFinput"
+mp$mp1$mp$hcr$inputF 0.225
+
+#
+# Management procedure 2 : Hist
+#
+mp$mp2$gui$mpLabel "Hist"
+mp$mp2$mp$assess$methodId 5
+mp$mp2$mp$assess$caaM 0.45
+mp$mp2$mp$assess$caaPmM 0.50
+mp$mp2$mp$assess$caaPmSteep 0.81
+mp$mp2$mp$assess$caaPmQ1 0.56
+mp$mp2$mp$assess$caaPmQ2 1
+mp$mp2$mp$assess$caaPsdQ1 0.27
+mp$mp2$mp$assess$caaPsdQ2 0.0001
+mp$mp2$mp$assess$caaSurveyRel "c(1,0)"
+mp$mp2$mp$hcr$hcrType "variableF"
+mp$mp2$mp$hcr$updateRefPts FALSE
+mp$mp2$mp$hcr$statusSource "statusSrceEst"
+mp$mp2$mp$hcr$remRefBase "rrBaseFinput"
+mp$mp2$mp$hcr$inputF 0.225
+
+#
+# Management procedure 3 : ccRule
+#
+mp$mp3$gui$mpLabel "ccRule"
+mp$mp3$mp$assess$methodId 1
+mp$mp3$mp$hcr$hcrType "ccRule"
+mp$mp3$mp$hcr$remRefBase "rrBaseFinput"
+mp$mp3$mp$hcr$inputF 0.115
+
+#
+# File Ends <not run>.

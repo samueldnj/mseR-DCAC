@@ -1,0 +1,5 @@
+# Ignore backup folders
+mseRbackup/*
+
+# Ignore batch directory simCtlFiles
+mseRproject/batch/*.txt

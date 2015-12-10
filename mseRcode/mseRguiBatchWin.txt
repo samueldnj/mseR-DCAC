@@ -1,0 +1,94 @@
+window name=mseRguiBatch title="mseR Batch Control"
+
+# Main pull-down menu items.
+
+menu nitem=1 label="File"
+  menuitem label="Exit"                       function=.closeActWin
+menu nitems=3 label="View"
+  menu nitems=3 label=Docs
+    menuitem label="mseR-Finfish 1.0 Components" function=.viewHelp action=mseR-Finfish.emf
+    menuitem label="Variable Description"     function=.viewHelp action=testDoc.txt
+    menuitem label="Plot Descriptions"        function=.viewHelp action=testDoc.txt
+  menu nitems=2 label="R Code"
+    menuitem label="GUI Functions"            function=.viewFile action=mseRguiBatchFuns.r
+    menuitem label="Window Control Template"  function=.viewFile action=mseRguiBatchWin.txt
+menu nitems=4 label=Help
+    menuitem label="FAQ"                      function=.viewHelp action=testDoc.txt
+    menuitem label="guiBatch Help"            function=.viewHelp action=testDoc.txt
+    menuitem label="mseR Manual"              function=.viewHelp action=testDoc.txt
+    menuitem label="About mseR"               function=.viewHelp action=mseR-FFabout.txt
+
+
+grid 4 1
+
+  # Grid Row 1: mseR Batch Files.
+  grid 2 1
+
+    # Input files.
+    grid 2 1 relief="raised" padx=5 pady=5
+      label text="Input Files" font="bold 12" sticky="W"
+
+      grid 2 4
+        label text="Batch File" font="10" sticky="W" width=12
+        entry name=batJobFile value="mseRbatchJob.bch" function=.subBatch \
+          action="batJobFile" entryfont="10" font="10" mode="character" width=50
+        button text="Select" function=.subBatch action="batJobSelect" font="bold 10" padx=2 width=5 bg="gray85"
+        button text="Edit"   function=.subBatch action="batJobEdit"   font="bold 10" padx=2 width=5 bg="gray85"
+
+        label text="Base File" font="10" sticky="W" width=12
+        entry name=batBasePars value="simCtlFile.txt" function=.subBatch \
+          action="batBasePars" entryfont="10" font="10" mode="character" width=50
+        button text="Select" function=.subBatch action="batBaseSelect" font="bold 10" padx=2 width=5 bg="gray85"
+        button text="Edit"   function=.subBatch action="batBaseEdit"   font="bold 10" padx=2 width=5 bg="gray85"
+
+    # Output files.
+    grid 3 1 relief="raised" padx=5 pady=5
+      label text="Output Files" font="bold 12" sticky="W"
+
+      grid 2 3 pady=2
+        button text="Project Folder" function=.subBatch action="batSelPrj" font="bold 10" padx=2 width=12 sticky="W" bg="gray85"
+        entry name=batPrjFld value="mseRproject" function=.subBatch action="batPrjFld" \
+          entryfont="10" font="10" mode="character" width=50
+        null
+      
+        button text="Design File" function=.subBatch action="batDesign" font="bold 10" padx=2 width=12 sticky="W" bg="gray85"
+        entry name=batDesFile value="mseRbatch.design" function=.subBatch \
+          action="batDesFile" font="10" mode="character" entryfont=10 width=50
+        button text="Edit"   function=.subBatch action="batDesView"   font="bold 10" padx=2 width=5 bg="gray85"
+ 
+      grid 1 2
+        label text="Simulation Control File Prefix" font="10" sticky="W"
+        entry name=batPrefix value="simCtlBat" function=.subBatch \
+          action="batPrefix" entryfont="10" font="10" mode="character" pady=5 width=20
+
+  # Grid Row 2: mseR Batch Options.
+  grid 2 1 relief="raised" padx=5 pady=5
+
+    label text="Options" font="bold 12" sticky="W"
+
+    grid 1 4
+      label text="Text Editor" font="10" sticky="W" width=12
+      entry name=batEditApp value="notepad.exe" function=.subBatch \
+        action="batEditApp" font="10" mode="character" width=50
+      button text="Set"                        function=.subBatch \
+        action="batSetEdit" font="bold 10" padx=2 width=6 bg="gray85"
+      label text="" font="10" padx=2 width=6
+
+  # Grid Row 3: mseR Batch Buttons.
+  grid 2 1 pady=5 relief="raised" padx=5 pady=5
+
+    label text="Simulation Control Files" font="bold 12"
+    grid 1 3 padx=20 pady=5
+      button text="Make"   function=.subBatch action="batMake" font="12" padx=2 width=8 bg="gray85"
+      button text="Show"   function=.subBatch action="batShow" font="12" padx=2 width=8 bg="gray85"
+      button text="Run"    function=.subBatch action="batRun"  font="12" padx=2 width=8 bg="gray85"
+
+  # Grid Row 4: mseR Control Buttons.
+  grid 1 7 relief="sunken" pady=3
+    button name=batReset text="Reset"   function=.subBatch action="batReset" font="bold 12" padx=4  width=5 bg="yellow"      
+    button name=batSim   text="Sim"     function=.subBatch action="batSim"   font="bold 12" padx=2  width=5 bg="gray85"
+    button name=batView  text="View"    function=.subBatch action="batView"  font="bold 12" padx=2  width=5 bg="gray85"
+    button name=batPerf  text="Perf"    function=.subBatch action="batPerf"  font="bold 12" padx=2  width=5 bg="gray85"
+    button name=batOpt   text="Options" function=.subBatch action="batOpt"   font="bold 12" padx=2  width=6 bg="gray85"
+    button name=batTrack text="Track"   function=.subBatch action="batTrack" font="bold 12" padx=2  width=5 bg="gray85"   
+    button name=batExit  text="Exit"    function=.subBatch action="batExit"  font="bold 12" padx=10 width=5 bg="gray95"

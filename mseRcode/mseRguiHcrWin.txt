@@ -1,0 +1,215 @@
+window name=mseRguiHcr title="mseR: Harvest Control Rule GUI"
+
+# (1) Main pull-down menu items.
+
+menu nitem=1 label="File" font="12"
+  menuitem label="Exit"                      function=.closeActWin
+menu nitems=2 label="View" font="12"
+  menu nitems=3 label=Docs
+    menuitem label="mseR-FinFish Components" function=.viewHelp action=mseR-Finfish.emf
+    menuitem label="Variable Description"    function=.viewHelp action=testDoc.txt
+    menuitem label="Plot Descriptions"       function=.viewHelp action=testDoc.txt
+  menu nitems=2 label="R Code"
+    menuitem label="GUI Functions"        	 function=.viewFile action=mseRguiSimFuns.r
+    menuitem label="Window Control Template" function=.viewFile action=mseRguiHcrWin.txt
+menu nitems=4 label=Help font="12"
+    menuitem label="FAQ"                     function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Help"       function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Manual"     function=.viewHelp action=testDoc.txt
+    menuitem label="About mseR-HCR"          function=.viewHelp action=mseR-FFabout.txt
+
+#------------------------------------------------------------------------------#
+#--                      Harvest Decision Rule GUI                           --#
+#------------------------------------------------------------------------------#
+
+grid 4 1
+
+  # Row 4: HCR Selection
+  grid 2 1 relief="raised" pady=3
+    label text="HCR Type" font="bold 12"
+    
+    grid 1 4
+      radio name=hcrType value="constantF"   text="Constant F"     function=.subSim mode=character font=12    
+      radio name=hcrType value="variableF"   text="Variable F"     function=.subSim mode=character font=12 selected=T
+      radio name=hcrType value="declineRisk" text="Decline Risk"   function=.subSim mode=character font=12
+      radio name=hcrType value="hcrUser"     text="User Rule"      function=.subSim mode=character font=12         
+
+  # Row 1: Stock Status.
+  grid 3 1 relief="raised" pady=3
+    
+    label text="Stock Status" font="bold 12"
+
+    grid 2 1 padx=5 pady=3
+
+      grid 1 5 sticky=W
+        label text="Base:" font="italic bold 10"
+        null padx=20
+        radio name=statusBase value=statusBaseBmsy text="Bmsy  "     function=.subSim mode=character font=10 selected=TRUE
+        radio name=statusBase value=statusBaseB0   text="Bo    "     function=.subSim mode=character font=10 
+        radio name=statusBase value=statusBaseBt   text="Historical" function=.subSim mode=character font=10
+
+      grid 2 1 relief="sunken" padx=10 sticky=W
+
+	  grid 1 4 sticky=W
+          label text="Historical Method" font="bold 10" sticky=NW
+          null padx=120
+          label text="Start" font="10" sticky=SE
+          label text="End"   font="10" sticky=SE
+
+        grid 2 9 sticky=W pady=3 byrow=FALSE
+           label text="Lower" font="italic bold 10" sticky=W
+	         label text="Upper" font="italic bold 10" sticky=W
+
+           radio name=histLowBase   value=Bmean text="Bmean" function=.subSim mode=character font=10 sticky=W selected=TRUE
+           radio name=histUpperBase value=Bmean text="Bmean" function=.subSim mode=character font=10 sticky=W selected=TRUE
+           
+	   radio name=histLowBase   value=Bmin text="Bmin"   function=.subSim mode=character font=10 sticky=W
+           radio name=histUpperBase value=Bmin text="Bmin"   function=.subSim mode=character font=10 sticky=W
+           
+           radio name=histLowBase   value=Bmax text="Bmax"   function=.subSim mode=character font=10 sticky=W
+           radio name=histUpperBase value=Bmax text="Bmax"   function=.subSim mode=character font=10 sticky=W
+           
+           radio name=histLowBase   value=Bquant text="Quantile" function=.subSim mode=character font=10 sticky=W
+           radio name=histUpperBase value=Bquant text="Quantile" function=.subSim mode=character font=10 sticky=W
+
+           entry name=lowBaseQuant   value=10 function=.subSim mode="numeric" width=3
+           entry name=upperBaseQuant value=10 function=.subSim mode="numeric" width=3
+
+           null padx=10
+           null padx=10
+
+           entry name=lowBaseStartYr   function=.subSim value=1  mode="numeric" width=5
+           entry name=upperBaseStartYr function=.subSim value=1  mode="numeric" width=5
+           
+           entry name=lowBaseEndYr     function=.subSim value=10 mode="numeric" width=5
+           entry name=upperBaseEndYr   function=.subSim value=10 mode="numeric" width=5
+
+    grid 1 7 sticky=W
+          label text="Base Multipliers:" font="bold 10" sticky=W
+          entry label="Lower" name=lowerBoundMult function=.subSim action="lowerBoundMult" value=0.4 mode="numeric" font=10 entryfont=10 width=4
+          entry label="Upper" name=upperBoundMult function=.subSim action="upperBoundMult" value=0.8 mode="numeric" font=10 entryfont=10 width=4
+          null padx=5
+          label text="Source:" font="bold 10"
+          radio name=statusSource value=statusSrceEquil text="OM  " function=.subSim mode=character font=10
+          radio name=statusSource value=statusSrceEst   text="MP  " function=.subSim mode=character font=10 selected=TRUE
+     	  
+  # Row 2: Removal Rate.
+  grid 4 1 relief="raised" pady=3
+    label "Reference Removal Rate" font="bold 12"
+
+    grid 1 10 padx=5
+          
+          label text="Base:" font="bold 10" sticky=W
+          radio name=remRefBase value=rrBaseFmsy   text="Fmsy"    function=.subSim mode=character font=10 sticky=W selected=TRUE
+          radio name=remRefBase value=rrBaseF01    text="F0.1" function=.subSim mode=character font=10 sticky=W
+          radio name=remRefBase value=rrBaseFspr   text="Fspr X%" function=.subSim mode=character font=10 sticky=W   
+          entry name=sprX value=40 width=4 mode="numeric" action="sprX" function=.subSim entryfont=10
+          null
+          radio name=remRefBase value=rrBaseFinput text="F Input" function=.subSim mode=character font=10 sticky=W
+          entry name=inputF value=0.05 width=5 mode="numeric" action="inputF" function=.subSim entryfont=10
+          null
+          radio name=remRefBase value=rrBaseFt     text="Historical" function=.subSim mode=character font=10 sticky=W
+
+    grid 2 1 relief="sunken"
+        
+        grid 1 4 sticky=W
+           label text="Historical Method" font="bold 10" sticky=NW
+           null padx=100
+           label text="Start" font="10" sticky=SE
+           label text="End" font="10" sticky=SE
+
+        grid 1 8
+           radio name=histFtBase value=Fmean  text="Fmean"    function=.subSim mode=character font=10 sticky=W selected=TRUE
+           radio name=histFtBase value=Fmin   text="Fmin"     function=.subSim mode=character font=10 sticky=W selected=FALSE
+           radio name=histFtBase value=Fmax   text="Fmax"     function=.subSim mode=character font=10 sticky=W selected=FALSE
+	   radio name=histFtBase value=Fquant text="Quantile" function=.subSim mode=character font=10 sticky=W selected=FALSE
+	   entry name=histFtBaseQuant function=.subSim value=0.5 mode="numeric" width=3 padx=3
+           null padx=10      
+	   entry name=FtStartYr function=.subSim value=1 mode="numeric" width=5	             	    
+           entry name=FtEndYr   function=.subSim value=10   mode="numeric" width=5 
+
+    grid 1 6 byrow=TRUE sticky=W
+          label text="F multiplier:" font="bold 10" 
+          entry name=Fmult value=1.0 function=.subSim mode=numeric entryfont=10 font=10 width=4 sticky=W
+          null padx=100
+          label text="Source:" font="bold 10" sticky=W
+          radio name=remRefSource value=rrSrceEquil text="OM" function=.subSim mode=character font=10 sticky=W
+          radio name=remRefSource value=rrSrceEst   text="MP" function=.subSim mode=character font=10 sticky=W selected=T
+
+
+    
+  # Row 3: Options.
+  grid 3 1 relief="sunken" pady=3
+
+    grid 1 5
+      label text="Ctl Pt update freq" font=12 sticky=E
+      entry name=ctlPtFreq value=1 width=4 mode="numeric" action="cltPtFreq" function=.subSim entryfont=12  
+        
+      label text="Lambda1" font=12 sticky=E
+      entry name=lambda1 value=0 width=4 mode="numeric" action="lambda1" function=.subSim entryfont=12 sticky=E
+      
+      check name=paAdj     action="paAdj"     function=.subSim checked=F text="Risk-based adj" font=12 sticky=W      
+
+    grid 1 6
+      check name=useMLE action="useMLE" function=.subSim checked=T text="Use MLE" font=12 sticky=E
+      null
+      
+      label text="MCMC Chain" font=12
+      entry name=nMCMC value=10000 width=10 mode="numeric" action="nMCMC" function=.subSim entryfont=12
+      
+      label text="Thin" font=12
+      entry name=nThin value=10000 width=5 mode="numeric" action="nThin" function=.subSim entryfont=12
+      
+    grid 1 4
+      check name=forecast  action="forecast"  function=.subSim checked=F text="Interim Model" font=12 sticky=W
+      check name=skipFails action="skipFails" function=.subSim checked=F text="Last converged vals" font=12 sticky=W
+      check name=useSnow   action="useSnow"   function=.subSim checked=T text="Parallel" font=12 sticky=W
+      check name=useDLL    action="useDLL"    function=.subSim checked=F text="Use DLL" font=12 sticky=W
+
+    # Row 4:
+    grid 1 3 relief="sunken" padx=3 sticky=N
+    
+      # Column 1.
+      grid 2 1 sticky=N
+        label text="Recent Trend" font="bold 10" sticky=W
+
+        grid 3 2                                                                                         
+          label text="Years" font=10
+          entry name=trendYears function=.subSim action="trendYears" value=3 mode="numeric" width=5
+      
+          label text="Min Pct" font=10
+          entry name=lowerTrendPct function=.subSim action="lowerTrendPct" value=0.1 mode="numeric" width=5
+
+          label text="Max Pct" font=10
+          entry name=upperTrendPct function=.subSim action="upperTrendPct" value=0.9 mode="numeric" width=5
+
+      # Column 2
+      grid 2 1 relief="sunken" sticky=N
+        label text="Acceptable Probability of Decline" font="bold 12"
+
+        matrix nrow=3 ncol=6 rowlabels="'Inc' 'Stable' 'Dec'" \
+          collabels="'CP1a' 'CP1b' 'CP2a' 'CP2b' 'CP3a' 'CP3b'" \
+          names="Inc1a Inc1b Inc2a Inc2b Inc3a Inc3b Stable1a Stable1b Stable2a Stable2b Stable3a Stable3b  Dec1a Dec1b Dec2a Dec2b Dec3a Dec3b" \ 
+          values="0.01 0.05 0.05 0.95 0.95 0.95  0.01 0.05 0.05 0.50 0.50 0.95  0.01 0.025 0.025 0.25 0.25 0.95" \
+          function=.subSim width=5 font=10              
+      
+      # Column 3
+      grid 3 1 relief="sunken" sticky=N
+        label text="Projection" font="bold 10"
+     
+        grid 1 2 sticky=E    
+          label text="Years" font=10
+          entry name=nProjYears function=.subSim action="nProjYears" value=10 mode="numeric" width=5
+      
+        grid 3 2
+          label text="Min Quota" font=10
+          entry name=lowerQuota function=.subSim action="lowerQuota" value=0.0 mode="numeric" width=5
+           
+          label text="Max Quota" font=10
+          entry name=upperQuota function=.subSim action="upperQuota" value=1.5   mode="numeric" width=5
+            
+          label text="No. Q Bins" font=10
+          entry name=binQuota   function=.subSim action="binQuota"   value=10 mode="numeric" width=5
+
+  # Row 5: GUI control buttons.
+  button name=hcrOK   text="Save"   function=.subSim action="hcrOK"   font="bold 12" padx=2 width=6

@@ -1,0 +1,62 @@
+varType,varName,minVal,maxVal,description,label,units,prefix,bg,col,fg,lty,lwd,pch,cex
+opMod,Dt,0,100,Catch biomass,Catch,metric tons,.Dt,cyan,cyan,black,1,2,21,1.4
+opMod,Bt,0,100,Spawning biomass,Spawning biomass,metric tons,.Bt,white,red,black,1,3,21,1.4
+opMod,Bexp,0,100,Fishery exploitable biomass,Fishery exploitable biomass,metric tons,.Bexp,white,gray,gray,1,2,21,1.4
+opMod,Bsurvey,0,100,Survey exploitable biomass,Survey exploitable biomass,metric tons,.BexpS,white,black,black,1,2,21,1.4
+opMod,Nt,0,500,Spawning numbers,Spawning numbers,000s,.Nt,white,red,black,1,3,21,1.4
+opMod,Nexp,0,500,Exploitable numbers,Exploitable numbers,,.Nexp,white,gray,gray,1,3,21,1.4
+opMod,Ft,0,10,Fishing mortality,Fishing mortality,,.Ft,white,black,black,1,2,21,1.4
+opMod,M,0,10,Mean natural mortality,Mean natural mortality,,.M,purple,purple,black,4,2,21,1.4
+opMod,Mt,0,10,Natural mortality year t,Natural mortality,,.Mt,purple,purple,black,1,2,21,1.4
+opMod,Rt,0,10000,Recruits,Recruits,000s,.Rt,darkorange,black,black,1,2,21,1.4
+opMod,tMP,1,100,MP start year,tMP,years,.tMP,white,black,black,3,2,21,1.4
+opMod,Dept,0,10,Depletion,Depletion,,.Dept,white,black,black,1,1,21,1.4
+data,It,0,1000,Survey index,Survey index,metric tons,.It,aquamarine,black,black,1,2,21,1.4
+method,BtEst,0,100,Estimated biomass,Estimated biomass,metric tons,.BtEst,white,green4,black,1,3,21,1.4
+method,BtStep,0,100,Estimated biomass,Estimated biomass,metric tons,.BtStep,white,blue,black,1,2,21,1.4
+method,BmsyEst,0,100,Estimated Bmsy,Estimated Bmsy,metric tons,.BmsyEst,white,black,black,2,2,22,1.4
+method,FmsyEst,0,10,Estimated Fmsy,Estimated Fmsy,,.FmsyEst,cyan,cyan,black,2,2,22,1.4
+method,MsyEst,0,100,Estimated MSY,Estimated MSY,metric tons,.MsyEst,cyan,cyan,black,2,2,22,1.4
+method,BexpRetro,0,100,Retrospective fishery exploitable biomass,Estimated fishery exploitable biomass,metric tons,.BexpRetro,white,blue,black,1,2,21,1.4
+method,BexpSRetro,0,100,Retrospective survey exploitable biomass,Estimated survey exploitable biomass,metric tons,.BexpSRetro,white,blue,black,1,2,21,1.4
+method,BspawnRetro,0,100,Retrospective spawning biomass,Estimated spawning biomass,,.BspawnRetro,white,blue,black,1,2,21,1.4
+method,RtRetro,-10,10,Retrospective recruitments,Estimated recruitment,,.RtRetro,white,orange,black,1,2,21,1.4
+hcr,lowerB,0,100,Lower bound of HCR,Lower Bound,metric tons,.HCRLB,red,black,black,3,1,24,1.4
+hcr,upperB,0,100,Upper bound of HCR,Upper Bound,metric tons,.HCRUB,yellow,black,black,3,1,24,1.4
+hcr,Bref,0,100,Target biomass control point,Bref,metric tons,.Bref,green,green,black,1,1,21,1.4
+hcr,Fref,0,10,Target F control point,Fref,,.Fref,green,green,black,1,1,21,1.4
+hcr,Fhcr,0,10,Harvest control rule F,Fhcr,,.Fhcr,green,green,black,1,1,21,1.4
+refPts,B0,0,100,Unfished spawning biomass,B0,metric tons,.B0,gray51,gray51,black,4,1,21,1.4
+refPts,Bmsy,0,100,Spawning biomass at MSY,Bmsy,metric tons,.Bmsy,green3,green3,black,4,2,21,1.4
+refPts,F0,0,10,Fishing mortality F0,F0,,.F0,purple,purple,black,1,2,21,1.4
+refPts,F01,0,10,Fishing mortality F0.1,F0.1,,.F01,aquamarine,aquamarine,black,1,2,21,1.4
+refPts,Fcra,0,10,Fishing mortality Fcrash,Fcra,,.Fcra,black,black,black,1,2,21,1.4
+refPts,Fmax,0,10,Fishing mortality Fmax,Fmax,,.Fmax,red,red,black,1,2,21,1.4
+refPts,FsprX,0,10,Fishing mortality FsprX%,FsprX,,.Fspr,steelblue1,steelblue1,black,1,2,21,1.4
+refPts,Fmsy,0,10,Fishing mortality Fmsy,Fmsy,,.Fmsy,green3,green3,black,4,2,21,1.4
+refPts,MSY,0,100,Maximum sustainable yield,MSY,metric tons,.MSY,green3,green3,black,4,2,21,1.4
+objectives,CriticalZone,0,100,DFO Critical Zone,Critical Zone,metric tons,.Critical,pink,pink,black,1,2,21,1.4
+objectives,CautiousZone,0,100,DFO Cautious Zone,Cautious Zone,metric tons,.Cautious,yellow,yellow,black,1,2,21,1.4
+objectives,HealthyZone,0,1000,DFO Healthy Zone,Healthy Zone,metric tons,.Healthy,green,green,black,1,2,21,1.4
+objectives,LRP,0,100,Limit reference point,LRP,metric tons,.Lrp,pink,black,black,3,2,21,1.4
+objectives,USR,0,100,Upper stock reference point,USR,metric tons,.Usr,yellow,black,black,3,2,21,1.4
+objectives,TRP,0,100,Target reference point,TRP,metric tons,.Trp,green,black,black,3,2,21,1.4
+common,MP,0,0,MP,Management procedure,,.Mp,white,black,black,2,1,21,1.4
+common,OM,0,0,OM,Operating model,,.Om,red,red,black,2,1,21,1.4
+objectives,Obj1Dep,0,10,Objective 1 depletion,Objective 1 Depletion,,.Obj1Dep,red,red,black,2,2,21,1.6
+objectives,Obj1Prob,0,1,Objective 1 probability,Objective 1 Probability,,.Obj1Prob,magenta,magenta,black,2,2,21,1.6
+objectives,Obj1Yr,1,100,Objective 1 year,Objective 1 Year,,.Obj1Yr,deepskyblue,deepskyblue,black,2,2,21,1.6
+objectives,Obj2Dep,0,10,Objective 2 depletion,Objective 2 Depletion,,.Obj2Dep,red,red,black,2,2,21,1.6
+objectives,Obj2Prob,0,1,Objective 2 probability,Objective 2 Probability,,.Obj2Prob,magenta,magenta,black,2,2,21,1.6
+objectives,Obj3Yr,1,100,Objective 2 year,Objective 2 Year,,.Obj2Yr,deepskyblue,deepskyblue,black,2,2,21,1.6
+objectives,Obj3Dep,0,10,Objective 3 depletion,Objective 3 Depletion,,.Obj3Dep,red,red,black,2,2,21,1.6
+objectives,Obj3Prob,0,1,Objective 3 probability,Objective 3 Probability,,.Obj3Prob,magenta,magenta,black,2,2,21,1.6
+objectives,Obj3Yr,1,100,Objective 3 year,Objective 3 Year,,.Obj3Yr,deepskyblue,deepskyblue,black,2,2,21,1.6
+hcr,HCR,0,0,Harvest control rule,Harvest control rule,,.Hcr,white,black,black,1,2,21,1
+common,LifeHist,0,0,Life history,Life history,,.Lh,white,black,black,1,2,21,1.4
+common,LifeHist,0,1,Maturity at age,Maturity at age,,.Mat,white,black,black,1,2,21,1.4
+common,LifeHist,1,100,Age,Age,years,.Age,white,black,black,1,2,21,1.4
+common,LifeHist,0,100,Length,Length,cm,.Len,white,black,black,1,2,21,1.4
+common,LifeHist,0,10,Weight,Weight,kg,.Wgt,white,black,black,1,2,21,1.4
+common,Period1,0,0,Period 1,Period 1,,.Per1,white,black,black,1,2,21,1.4
+common,Period2,0,0,Period 2,Period 2,,.Per2,gray,gray,black,1,2,21,1.4

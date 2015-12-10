@@ -1,0 +1,195 @@
+# File Begins <not run>.
+parameter value
+#
+# Scenarios for reference set.
+#
+#  Scenario 1: Big Skate with high initial depletion
+#
+scenario$scenario1$gui$scenarioLabel "BS_hiDep"
+scenario$scenario1$opMod$rSteepness 0.4
+scenario$scenario1$opMod$sigmaR 0.60
+scenario$scenario1$opMod$aMat50 7
+scenario$scenario1$opdMod$aMat95 11
+scenario$scenario1$opMod$aSel50 7
+scenario$scenario1$opMod$aSel95 11
+scenario$scenario1$opmod$M 0.17
+scenario$scenario1$opMod$c1 5e-06
+scenario$scenario1$opMod$c2 3.1
+scenario$scenario1$opMod$Linf 293
+scenario$scenario1$opMod$L1 33
+scenario$scenario1$opMod$vonK 0.04
+scenario$scenario1$opMod$tauSurvey 0.27
+scenario$scenario1$opMod$nAges 25
+scenario$scenario1$opMod$initDepTarg 0.33
+scenario$scenario1$mp$assess$muPriorFmsy 0.1227
+scenario$scenario1$mp$assess$pmSteepness 0.4
+#
+#
+# Scenario 2: English Sole with high initial depletion
+#
+scenario$scenario2$gui$scenarioLabel "ES_hiDep"
+scenario$scenario2$opMod$rSteepness 0.8
+scenario$scenario2$opMod$sigmaR 0.42
+scenario$scenario2$opMod$aMat50 4.2
+scenario$scenario2$opMod$aMat95 7.5
+scenario$scenario2$opMod$aSel50 4.2
+scenario$scenario2$opMod$aSel95 7.5
+scenario$scenario2$opMod$M 0.26
+scenario$scenario2$opMod$c1 6.3e-04
+scenario$scenario2$opMod$c2 3.09
+scenario$scenario2$opMod$Linf 49
+scenario$scenario2$opMod$L1 12.3
+scenario$scenario2$opMod$vonK 0.262
+scenario$scenario2$opMod$tauSurvey 0.18
+scenario$scenario2$opMod$nAges 10
+scenario$scenario2$opMod$initDepTarg 0.254
+scenario$scenario2$mp$assess$muPriorFmsy 0.2967
+scenario$scenario2$mp$assess$pmSteepness 0.8
+#
+#
+# Scenario 3: Pacific herring with high initial depletion
+#
+scenario$scenario3$gui$scenarioLabel "PH_hiDep"
+scenario$scenario3$opMod$rSteepness 0.74
+scenario$scenario3$opMod$sigmaR 0.70
+scenario$scenario3$opMod$aMat50 2.5
+scenario$scenario3$opMod$aMat95 3.0
+scenario$scenario3$opMod$aSel50 2.5
+scenario$scenario3$opMod$aSel95 3.0
+scenario$scenario3$opMod$M 0.58
+scenario$scenario3$opMod$c1 4.3e-06
+scenario$scenario3$opMod$c2 3.232
+scenario$scenario3$opMod$Linf 30
+scenario$scenario3$opMod$L1 10
+scenario$scenario3$opMod$vonK 0.20
+scenario$scenario3$opMod$tauSurvey 0.36
+scenario$scenario3$opMod$nAges 9
+scenario$scenario3$opMod$initDepTarg 0.247
+scenario$scenario3$mp$assess$muPriorFmsy 0.6509
+scenario$scenario3$mp$assess$pmSteepness 0.74
+#
+# Scenario 4: Redbanded rockfish with high initial depletion
+#
+scenario$scenario4$gui$scenarioLabel "RR_hiDep"
+scenario$scenario4$opMod$rSteepness 0.71
+scenario$scenario4$opMod$sigmaR 0.60
+scenario$scenario4$opMod$aMat50 11.5
+scenario$scenario4$opMod$aMat95 35
+scenario$scenario4$opMod$aSel50 11.5
+scenario$scenario4$opMod$aSel95 35
+scenario$scenario4$opMod$M 0.035
+scenario$scenario4$opMod$c1 9.0e-06
+scenario$scenario4$opMod$c2 3.10
+scenario$scenario4$opMod$Linf 55
+scenario$scenario4$opMod$L1 25
+scenario$scenario4$opMod$vonK 0.05
+scenario$scenario4$opMod$tauSurvey 0.18
+scenario$scenario4$opMod$nAges 50
+scenario$scenario4$opMod$initDepTarg 0.241
+scenario$scenario4$mp$assess$muPriorFmsy 0.0415
+scenario$scenario4$mp$assess$pmSteepness 0.71
+#
+#  Scenario 5: Big Skate with low initial depletion
+#
+scenario$scenario5$gui$scenarioLabel "BS_loDep"
+scenario$scenario5$opMod$rSteepness 0.4
+scenario$scenario5$opMod$sigmaR 0.60
+scenario$scenario5$opMod$aMat50 7
+scenario$scenario5$opMod$aMat95 11
+scenario$scenario5$opMod$aSel50 7
+scenario$scenario5$opMod$aSel95 11
+scenario$scenario5$opMod$M 0.17
+scenario$scenario5$opMod$c1 5e-06
+scenario$scenario5$opMod$c2 3.1
+scenario$scenario5$opMod$Linf 293
+scenario$scenario5$opMod$L1 33
+scenario$scenario5$opMod$vonK 0.04
+scenario$scenario5$opMod$tauSurvey 0.27
+scenario$scenario5$opMod$nAges 25
+scenario$scenario5$opMod$initDepTarg 0.166
+scenario$scenario5$mp$assess$muPriorFmsy 0.1227
+scenario$scenario5$mp$assess$pmSteepness 0.4
+#
+#
+# Scenario 6: English Sole with low initial depletion
+#
+scenario$scenario6$gui$scenarioLabel "ES_loDep"
+scenario$scenario6$opMod$rSteepness 0.8
+scenario$scenario6$opMod$sigmaR 0.42
+scenario$scenario6$opMod$aMat50 4.2
+scenario$scenario6$opMod$aMat95 7.5
+scenario$scenario6$opMod$aSel50 4.2
+scenario$scenario6$opMod$aSel95 7.5
+scenario$scenario6$opMod$M 0.26
+scenario$scenario6$opMod$c1 6.3e-04
+scenario$scenario6$opMod$c2 3.09
+scenario$scenario6$opMod$Linf 49
+scenario$scenario6$opMod$L1 12.3
+scenario$scenario6$opMod$vonK 0.262
+scenario$scenario6$opMod$tauSurvey 0.18
+scenario$scenario6$opMod$nAges 10
+scenario$scenario6$opMod$initDepTarg 0.127
+scenario$scenario6$mp$assess$muPriorFmsy 0.2967
+scenario$scenario6$mp$assess$pmSteepness 0.8
+#
+#
+# Scenario 7: Pacific herring with low initial depletion
+#
+scenario$scenario7$gui$scenarioLabel "PH_loDep"
+scenario$scenario7$opMod$rSteepness 0.74
+scenario$scenario7$opMod$sigmaR 0.70
+scenario$scenario7$opMod$aMat50 2.5
+scenario$scenario7$opMod$aMat95 3.0
+scenario$scenario7$opMod$aSel50 2.5
+scenario$scenario7$opMod$aSel95 3.0
+scenario$scenario7$opMod$M 0.58
+scenario$scenario7$opMod$c1 4.3e-06
+scenario$scenario7$opMod$c2 3.232
+scenario$scenario7$opMod$Linf 30
+scenario$scenario7$opMod$L1 10
+scenario$scenario7$opMod$vonK 0.20
+scenario$scenario7$opMod$tauSurvey 0.36
+scenario$scenario7$opMod$nAges 9
+scenario$scenario7$opMod$initDepTarg 0.123
+scenario$scenario7$mp$assess$muPriorFmsy 0.6509
+scenario$scenario7$mp$assess$pmSteepness 0.74
+#
+# Scenario 8: Redbanded rockfish with low initial depletion
+#
+scenario$scenario8$gui$scenarioLabel "RR_loDep"
+scenario$scenario8$opMod$rSteepness 0.71
+scenario$scenario8$opMod$sigmaR 0.60
+scenario$scenario8$opMod$aMat50 11.5
+scenario$scenario8$opMod$aMat95 35
+scenario$scenario8$opMod$aSel50 11.5
+scenario$scenario8$opMod$aSel95 35
+scenario$scenario8$opMod$M 0.035
+scenario$scenario8$opMod$c1 9.0e-06
+scenario$scenario8$opMod$c2 3.10
+scenario$scenario8$opMod$Linf 55
+scenario$scenario8$opMod$L1 25
+scenario$scenario8$opMod$vonK 0.05
+scenario$scenario8$opMod$tauSurvey 0.18
+scenario$scenario8$opMod$nAges 50
+scenario$scenario8$opMod$initDepTarg 0.120
+scenario$scenario8$mp$assess$muPriorFmsy 0.0415
+scenario$scenario8$mp$assess$pmSteepness 0.71
+#
+#
+# Management procedures to apply to each scenario.
+#
+# Management procedure 1 : PMod - reliable.
+#
+mp$mp1$gui$mpLabel "pMod_rlb"
+mp$mp1$mp$assess$methodId 3
+mp$mp1$mp$assess$rhoEIV 0.75
+#
+#
+# Management procedure 2 : caaMod
+#
+mp$mp2$gui$mpLabel "caaMod_VHCR"
+mp$mp2$mp$assess$methodId 4
+mp$mp2$mp$assess$rhoEIV 0.75
+#
+#
+# File Ends <not run>.

@@ -1,0 +1,32 @@
+window name=mseRguiCtlPars title="mseR Simulation Control Parameters" onclose=.subMenuClose
+
+# (1) Main pull-down menu items.
+
+menu nitem=1 label="File"
+  menuitem label="Exit"                      function=.closeActWin
+menu nitems=2 label="View"
+  menu nitems=2 label=Docs
+    menuitem label="mseR-FinFish Components" function=.viewHelp action=mseR-Finfish.emf
+    menuitem label="Variable Description"    function=.viewHelp action=testDoc.txt
+  menu nitems=2 label="R Code"
+    menuitem label="GUI Functions"        	 function=.viewFile action=mseRguiSimFuns.r
+    menuitem label="Window Control Template" function=.viewFile action=mseRguiCtlParsWin.txt
+menu nitems=4 label=Help
+    menuitem label="FAQ"                     function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Help"       function=.viewHelp action=testDoc.txt
+    menuitem label="mseR-FinFish Manual"     function=.viewHelp action=testDoc.txt
+    menuitem label="About mseR"              function=.viewHelp action=mseR-FFabout.txt
+
+#------------------------------------------------------------------------------#
+#--                              Options GUI                                 --#
+#------------------------------------------------------------------------------#
+
+grid 2 1
+
+  # Grid Row 1: The parameter object and reference points widget.
+  grid 1 1 relief="raised"
+    object name=ctlPars rowshow=25 function=.subSim action="ctlPars" enter=TRUE entrybg="white" width="25 35" entryfont="12" font="12" padx=2
+
+  grid 1 2 pady=5
+    button name=ctlSort text="Sort" function=.subSim action="ctlSort" font="bold 12" padx=2 width=8 bg="gray85"
+    button name=ctlOk   text="Save" function=.subSim action="ctlOK"   font="bold 12" padx=2 width=8 bg="gray85"

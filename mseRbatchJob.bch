@@ -1,0 +1,38 @@
+# File Begins <not run>.
+parameter value
+#
+# Scenarios for reference set.
+#
+# Scenario 1: Base w/ historical M
+#
+scenario$scenario1$gui$scenarioLabel "HerrHistM"
+scenario$scenario1$gui$nReps 50
+opMod$historyType "simHistHerrCC.csv"
+#
+# Scenario 2: Base w/ om M
+#
+scenario$scenario2$gui$scenarioLabel "HerrRWM"
+scenario$scenario2$gui$nReps 50
+opMod$historyType "simHistHerrCCNoM.csv"
+#
+# Management Procedures
+#
+# Management Procedure 1 : Dm0.5Dv0.1Mm0.5Mv0.2Q1
+#
+mp$mp1$gui$mpLabel 'Dm0.5Dv0.1Mm0.5Mv0.2Q1'
+mp$mp1mp$assess$dcacDeltaMult 0.5
+mp$mp1mp$assess$dcacSDdelta 0.1
+mp$mp1mp$assess$dcacMortMult 0.5
+mp$mp1mp$assess$dcacCVLogM 0.2
+mp$mp1mp$assess$dcacQuant TRUE
+#
+# Management Procedure 2 : Dm1Dv0.1Mm0.5Mv0.2Q1
+#
+mp$mp2$gui$mpLabel 'Dm1Dv0.1Mm0.5Mv0.2Q1'
+mp$mp2mp$assess$dcacDeltaMult 1
+mp$mp2mp$assess$dcacSDdelta 0.1
+mp$mp2mp$assess$dcacMortMult 0.5
+mp$mp2mp$assess$dcacCVLogM 0.2
+mp$mp2mp$assess$dcacQuant TRUE
+#
+# File Ends <not run>.
