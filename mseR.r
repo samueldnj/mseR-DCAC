@@ -23,7 +23,7 @@ library(MCMCpack)  # for inverse gamma function
 
 # Feedback simulation code.
 source( "mseRrefPoints.r" )
-source( "mseRsimulation_DCAC.r" )
+source( "mseRsimulationDCAC.r" )
 source( "mseRstats.r" )
 
 # Plotting code.
